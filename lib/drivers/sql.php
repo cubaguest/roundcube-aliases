@@ -23,17 +23,24 @@ function mail_alias($action, array &$data) {
 		else if (!is_array($dsn) && !preg_match('/\?new_link=true/', $dsn)) {
 			$dsn .= '?new_link=true';
 			}
-		$db = new rcube_mdb2($dsn, '', FALSE);
-		$db->set_debug((bool)$rcmail->config->get('sql_debug'));
-		$db->db_connect('w');
+	        if (!class_exists('rcube_db')) 
+                {
+                        $db = new rcube_mdb2($dsn, '', FALSE);
+                } 
+                else 
+                {
+                        $db = rcube_db::factory($dsn, '', FALSE);
+                }
+                $db->set_debug((bool)$rcmail->config->get('sql_debug'));
+                $db->db_connect('w');
 		}
 	else {
 		$db = $rcmail->get_dbh();
-		}
+	}
 
 	if ($err = $db->is_error()) {
 		return PLUGIN_ERROR_CONNECT;
-		}
+	}
 
 	$search = array(
 			'%address',
@@ -54,7 +61,6 @@ function mail_alias($action, array &$data) {
 			$db->quote($data['active'])
 			);
 	$query = str_replace($search, $replace, $rcmail->config->get('aliases_sql_'.$action));
-
 	$sql_result = $db->query($query);
 	if ($err = $db->is_error()) {
 		return PLUGIN_ERROR_PROCESS;
