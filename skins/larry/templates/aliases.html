@@ -1,0 +1,36 @@
+<roundcube:object name="doctype" value="html5"/>
+<html>
+<head>
+<title><roundcube:object name="pagetitle" /></title>
+<roundcube:include file="/includes/links.html" />
+<link rel="stylesheet" type="text/css" href="/this/aliases.css" />
+</head>
+<body class="noscroll">
+
+<roundcube:include file="/includes/header.html" />
+<div id="mainscreen" class="offset">
+<roundcube:include file="/includes/settingstabs.html" />
+
+<div id="settings-right">
+    <div id="aliases-list" class="uibox listbox">
+	<h2 class="boxtitle"><roundcube:label name="aliases.aliases" /></h2>
+	<div class="scroller withfooter">
+	    <roundcube:object name="aliaseslist" />
+	</div>
+	<div class="boxfooter">
+	    <roundcube:button command="plugin.aliases.add" type="link" title="aliases.aliasesnewalias" class="listbutton add" classAct="listbutton add" innerClass="inner" content="+" />
+	</div>
+    </div>
+
+    <div id="preferences-box" class="uibox contentbox">
+	<roundcube:object name="aliasesframe" id="prefs-frame" width="100%" height="100%" frameborder="0" src="/watermark.html" />
+    </div>
+</div>
+</div>
+<roundcube:include file="/includes/footer.html" />
+<script type="text/javascript">
+    new rcube_splitter({ id: 'filtersspliter', p1 : '#aliases-list', p2 : '#preferences-box',
+		    orientation:'v', relative:true, start:260, min:120, size:12  }).init();
+</script>
+</body>
+</html>
