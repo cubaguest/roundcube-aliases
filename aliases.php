@@ -4,8 +4,9 @@
 
  +-----------------------------------------------------------------------+
  | PostfixAdmin Aliases Plugin for RoundCube                             |
- | Version: 0.7.2                                                        |
- | Author: Gianluca Giacometti <php@gianlucagiacometti.it>               |
+ | Version: 0.7.2a                                                        |
+ | Author: Gianluca Giacometti <php@gianlucagiacometti.it>
+ | Edited by: Jakub Matas <j.matas@cube-studio.cz> 
  | Copyright (C) 2012 Gianluca Giacometti                                |
  | License: GNU General Public License                                   |
  +-----------------------------------------------------------------------+

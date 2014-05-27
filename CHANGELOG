@@ -7,3 +7,9 @@
         * correct localization files
         * tested with RC 0.7.2
         [RELEASE]: version 0.7.2
+2014-05-27 jakub Matas <j.matas@cube-studio.cz>
+        * fixed for RC 1.0
+        * some fixs for larry template
+        * add Czech localization file
+        * tested with RC 1.0
+        [RELEASE]: version 0.7.2a
